@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mattos Tech Solutions | Sistemas com IA que geram resultado</title>
+  <meta name="description" content="Landing page focada em desenvolvimento de sistemas e inteligência artificial da Mattos Tech Solutions. Agende um diagnóstico gratuito e acelere seu produto.">
+  <link rel="icon" href="https://mattostechsolutions.com.br/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Sora"', 'Inter', 'system-ui', 'sans-serif']
+          },
+          colors: {
+            brand: {
+              50: '#e9f2ff',
+              100: '#d6e6ff',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8'
+            }
+          },
+          boxShadow: {
+            'brand': '0 25px 60px rgba(37, 99, 235, 0.25)',
+            'card': '0 15px 40px rgba(15, 23, 42, 0.35)'
+          },
+          keyframes: {
+            floaty: { '0%, 100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-12px)' } },
+            pulseGlow: { '0%, 100%': { opacity: 0.5 }, '50%': { opacity: 1 } }
+          },
+          animation: {
+            floaty: 'floaty 12s ease-in-out infinite',
+            'floaty-slow': 'floaty 18s ease-in-out infinite',
+            pulseGlow: 'pulseGlow 6s ease-in-out infinite'
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08), transparent 25%),
+                  radial-gradient(circle at 80% 0%, rgba(99, 102, 241, 0.08), transparent 28%),
+                  radial-gradient(circle at 10% 70%, rgba(52, 211, 153, 0.06), transparent 24%),
+                  #020617;
+    }
+    .grid-overlay {
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 42px 42px;
+    }
+  </style>
+</head>
+<body class="antialiased text-slate-100 overflow-x-hidden">
+  <div class="fixed inset-0 -z-10 grid-overlay"></div>
+  <div class="fixed inset-0 -z-20 bg-gradient-to-br from-slate-950 via-slate-950 to-slate-900"></div>
+
+  <header class="sticky top-0 z-40 border-b border-slate-800/80 bg-slate-950/80 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3">
+          <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-600 to-indigo-600 shadow-brand">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7v10l-4-4m16 0-4 4V7m-4 0v10" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm text-slate-300">Mattos Tech Solutions</p>
+            <p class="text-lg font-semibold text-white leading-tight">Dev. de Sistemas & IA</p>
+          </div>
+        </div>
+        <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+          <a href="#solucoes" class="text-slate-300 transition hover:text-brand-400">Soluções</a>
+          <a href="#ia" class="text-slate-300 transition hover:text-brand-400">IA na prática</a>
+          <a href="#quando" class="text-slate-300 transition hover:text-brand-400">Quando investir</a>
+          <a href="#processo" class="text-slate-300 transition hover:text-brand-400">Processo</a>
+          <a href="#contato" class="text-slate-300 transition hover:text-brand-400">Contato</a>
+          <a href="https://mattostechsolutions.com.br" target="_blank" rel="noopener noreferrer" class="text-slate-300 transition hover:text-brand-400">Site principal</a>
+          <a href="https://wa.me/5511990183194?text=Olá! Gostaria de falar com a Mattos Tech Solutions." target="_blank" rel="noopener noreferrer" class="rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-4 py-2 text-white shadow-brand transition hover:brightness-110">Falar agora</a>
+        </nav>
+        <button id="menuToggle" class="md:hidden inline-flex items-center justify-center rounded-lg border border-slate-800/80 px-3 py-2 text-slate-200 hover:border-brand-500 hover:text-brand-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+        </button>
+      </div>
+      <div id="mobileMenu" class="hidden flex-col space-y-3 border-t border-slate-800/80 py-4 md:hidden">
+        <a href="#solucoes" class="text-slate-200 hover:text-brand-300">Soluções</a>
+        <a href="#ia" class="text-slate-200 hover:text-brand-300">IA na prática</a>
+        <a href="#quando" class="text-slate-200 hover:text-brand-300">Quando investir</a>
+        <a href="#processo" class="text-slate-200 hover:text-brand-300">Processo</a>
+        <a href="#contato" class="text-slate-200 hover:text-brand-300">Contato</a>
+        <a href="https://mattostechsolutions.com.br" target="_blank" rel="noopener noreferrer" class="text-slate-200 hover:text-brand-300">Site principal</a>
+        <a href="https://wa.me/5511990183194?text=Olá! Gostaria de falar com a Mattos Tech Solutions." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-4 py-2 text-white shadow-brand hover:brightness-110">Falar agora</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="relative overflow-hidden">
+      <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute -top-16 -left-10 h-56 w-56 rounded-full bg-brand-600/25 blur-3xl animate-floaty"></div>
+        <div class="absolute top-24 right-10 h-72 w-72 rounded-full bg-indigo-600/30 blur-3xl animate-floaty-slow"></div>
+        <div class="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-slate-950 to-transparent"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20 lg:pb-28">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 relative">
+            <div class="inline-flex items-center rounded-full border border-brand-500/30 bg-slate-900/70 px-4 py-2 text-sm text-brand-200 shadow-card backdrop-blur">
+              Tecnologia estratégica de São Paulo (Tatuapé) para todo o Brasil
+            </div>
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              Sistemas sob medida <span class="text-brand-400">turbinados por IA</span> para acelerar seu ROI
+            </h1>
+            <p class="text-base sm:text-lg text-slate-300 leading-relaxed">
+              Combinamos desenvolvimento full stack, cloud e Inteligência Artificial para criar produtos digitais, automações e assistentes que destravam eficiência e novas receitas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="https://wa.me/5511990183194?text=Olá! Quero um diagnóstico gratuito sobre IA e desenvolvimento." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-brand hover:brightness-110">
+                Agendar diagnóstico gratuito
+                <span class="ml-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-6-6m6 6-6 6" />
+                  </svg>
+                </span>
+              </a>
+              <a href="#ia" class="inline-flex items-center justify-center rounded-full border border-slate-800 bg-slate-900/70 px-6 py-3 text-base font-semibold text-slate-100 shadow-card transition hover:border-brand-500 hover:text-brand-200">
+                Ver como aplicamos IA
+              </a>
+            </div>
+            <div class="grid grid-cols-2 gap-4 sm:gap-6 pt-6">
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 shadow-card">
+                <p class="text-xs sm:text-sm text-slate-400">Projetos entregues</p>
+                <p class="text-3xl sm:text-4xl font-bold text-white">+60</p>
+                <p class="text-xs sm:text-sm text-slate-400">Sistemas, integrações e automações</p>
+              </div>
+              <div class="rounded-2xl border border-slate-800 bg-slate-900/80 p-4 shadow-card">
+                <p class="text-xs sm:text-sm text-slate-400">IA como vantagem</p>
+                <p class="text-3xl sm:text-4xl font-bold text-white">até 40%</p>
+                <p class="text-xs sm:text-sm text-slate-400">de redução de tempo operacional</p>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-r from-brand-600/20 via-indigo-600/20 to-cyan-500/10 blur-3xl"></div>
+            <div class="relative rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-2xl backdrop-blur">
+              <div class="mb-4 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="h-3 w-3 rounded-full bg-emerald-400"></span>
+                  <span class="h-3 w-3 rounded-full bg-amber-400"></span>
+                  <span class="h-3 w-3 rounded-full bg-rose-400"></span>
+                </div>
+                <span class="rounded-full bg-slate-800 px-3 py-1 text-xs font-semibold text-brand-200">Squad de IA + Dev</span>
+              </div>
+              <div class="grid grid-cols-1 gap-4">
+                <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5">
+                  <p class="text-xs uppercase tracking-[0.2em] text-slate-400 mb-2">Blueprint do projeto</p>
+                  <div class="font-mono text-xs sm:text-sm text-slate-100 space-y-1 break-words">
+                    <div><span class="text-brand-400">const</span> produto = <span class="text-emerald-300">"IA + Sistema"</span>;</div>
+                    <div><span class="text-brand-400">const</span> metas = ["reduzir custo", "acelerar atendimento", "novas receitas"];</div>
+                    <div class="text-amber-200">if (dados_distribuidos) integrar(<span class="text-emerald-300">"APIs"</span>, <span class="text-emerald-300">"LLM"</span>);</div>
+                    <div><span class="text-brand-400">return</span> deploy(<span class="text-emerald-300">"cloud segura"</span>);</div>
+                  </div>
+                </div>
+                <div class="rounded-2xl border border-slate-800/80 bg-slate-950/80 p-5">
+                  <div class="flex items-center justify-between mb-3">
+                    <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Painel tático</p>
+                    <span class="text-emerald-300 text-xs font-semibold">Online</span>
+                  </div>
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2">
+                      <span class="text-sm text-slate-200">Chatbot com RAG</span>
+                      <span class="text-emerald-300 text-xs font-semibold">+72% respostas assertivas</span>
+                    </div>
+                    <div class="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2">
+                      <span class="text-sm text-slate-200">Automação de tickets</span>
+                      <span class="text-emerald-300 text-xs font-semibold">-38% tempo</span>
+                    </div>
+                    <div class="flex items-center justify-between rounded-xl bg-slate-900/80 px-3 py-2">
+                      <span class="text-sm text-slate-200">APIs & integrações</span>
+                      <span class="text-emerald-300 text-xs font-semibold">Escalável</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="solucoes" class="relative py-16 sm:py-20">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/30 to-transparent"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+          <div class="max-w-2xl space-y-3">
+            <span class="inline-flex items-center rounded-full bg-brand-600/20 px-4 py-1 text-sm font-semibold text-brand-200">Desenvolvimento + IA</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">Soluções completas para seu produto digital</h2>
+            <p class="text-slate-300 text-base sm:text-lg leading-relaxed">Do diagnóstico à operação, entregamos sistemas personalizados, integrações e inteligência artificial aplicada ao negócio.</p>
+          </div>
+          <a href="https://wa.me/5511990183194?text=Quero transformar meu sistema com IA." target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-full border border-brand-500/50 px-5 py-3 text-sm font-semibold text-brand-100 shadow-card hover:bg-brand-600/10">
+            Criar um roadmap juntos
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m0 0-6-6m6 6-6 6" />
+            </svg>
+          </a>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-3">
+          <div class="group rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-500/60">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600/20 text-brand-200 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7h18M3 12h18M3 17h18" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white">Sistemas sob medida</h3>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Aplicações web, APIs e plataformas em cloud com arquitetura escalável, segurança e monitoramento contínuo.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Design system e UX alinhados ao seu time</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Integração com ERPs, CRMs e gateways</li>
+            </ul>
+          </div>
+          <div class="group rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-500/60">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-600/20 text-indigo-200 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white">IA aplicada ao negócio</h3>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Assistentes com RAG, agentes autônomos, automação de fluxos e analytics para decidir mais rápido.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Chatbots com contexto de base de conhecimento</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Modelos afinados para dados internos</li>
+            </ul>
+          </div>
+          <div class="group rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card transition hover:-translate-y-1 hover:border-brand-500/60">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-600/20 text-cyan-200 mb-4">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold text-white">Evolução e suporte</h3>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Squad dedicado para otimizar releases, medir impacto e manter o ciclo de IA rodando.</p>
+            <ul class="mt-4 space-y-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Métricas de produto e observabilidade</li>
+              <li class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Treinamentos para seu time operar IA</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ia" class="relative py-16 sm:py-20">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-indigo-900/20 via-slate-950 to-slate-950"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center rounded-full bg-slate-800/80 px-4 py-1 text-sm font-semibold text-brand-200">IA na prática</span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Entrega rápida de valor com Inteligência Artificial</h2>
+          <p class="mt-3 text-base sm:text-lg text-slate-300">Selecionamos os casos de uso certos, prototipamos rápido e entregamos em produção com governança.</p>
+        </div>
+        <div class="grid lg:grid-cols-2 gap-8">
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold text-white">Onde a IA entra agora</h3>
+              <span class="text-xs font-semibold text-emerald-300 bg-emerald-500/10 px-3 py-1 rounded-full">Resultados em semanas</span>
+            </div>
+            <ul class="space-y-3 text-slate-300">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+                <div>
+                  <p class="font-semibold text-white">Chatbots e assistentes com RAG</p>
+                  <p class="text-sm text-slate-400">Atendimento e suporte com contexto real do seu negócio, integrando documentos, CRM e históricos.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+                <div>
+                  <p class="font-semibold text-white">Automação de processos</p>
+                  <p class="text-sm text-slate-400">Robôs que triagem tickets, classificam leads e disparam fluxos sem intervenção manual.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>
+                <div>
+                  <p class="font-semibold text-white">Insights e previsão</p>
+                  <p class="text-sm text-slate-400">Modelos que priorizam demandas, sugerem próximos passos e antecipam gargalos.</p>
+                </div>
+              </li>
+            </ul>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <span class="rounded-full bg-slate-800/80 px-3 py-1 text-xs font-semibold text-brand-200">LLMs prontos para produção</span>
+              <span class="rounded-full bg-slate-800/80 px-3 py-1 text-xs font-semibold text-brand-200">Privacidade e compliance</span>
+              <span class="rounded-full bg-slate-800/80 px-3 py-1 text-xs font-semibold text-brand-200">Métricas e feedback loop</span>
+            </div>
+          </div>
+          <div class="rounded-3xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold text-white">Stack e governança</h3>
+              <span class="text-xs font-semibold text-brand-100 bg-brand-600/20 px-3 py-1 rounded-full">Segurança primeiro</span>
+            </div>
+            <div class="grid grid-cols-2 gap-3 text-sm text-slate-300">
+              <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+                <p class="text-white font-semibold">Cloud & APIs</p>
+                <p class="text-slate-400 mt-1">AWS, Azure, GCP, Supabase</p>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+                <p class="text-white font-semibold">Modelos</p>
+                <p class="text-slate-400 mt-1">OpenAI, Azure OpenAI, Claude, Llama</p>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+                <p class="text-white font-semibold">Observabilidade</p>
+                <p class="text-slate-400 mt-1">Logs, tracing e avaliações humanas</p>
+              </div>
+              <div class="rounded-xl border border-slate-800 bg-slate-950/60 p-3">
+                <p class="text-white font-semibold">Segurança</p>
+                <p class="text-slate-400 mt-1">Controles de acesso, anonimização, monitoramento</p>
+              </div>
+            </div>
+            <div class="mt-6 rounded-2xl border border-brand-500/40 bg-gradient-to-r from-brand-600/15 to-indigo-600/15 p-4">
+              <p class="text-white font-semibold">Modelo de trabalho</p>
+              <p class="text-slate-300 text-sm mt-2">Discovery rápido, protótipo em 14 dias, piloto em produção em 30-45 dias com acompanhamento próximo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quando" class="relative py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center rounded-full bg-slate-800/80 px-4 py-1 text-sm font-semibold text-brand-200">Quando investir</span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Quando preciso de um sistema?</h2>
+          <p class="mt-3 text-lg text-slate-300">Se você se reconhece em um desses cenários, é hora de ter um sistema sob medida com IA para ganhar escala e controle.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Operação</p>
+            <h3 class="text-xl font-semibold text-white">Processos manuais demais</h3>
+            <p class="mt-2 text-slate-300 text-sm">Planilhas, retrabalho e perda de dados. Um sistema automatiza fluxos, centraliza informações e reduz erros.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Crescimento</p>
+            <h3 class="text-xl font-semibold text-white">Escala sem aumentar custo</h3>
+            <p class="mt-2 text-slate-300 text-sm">Se o time não acompanha a demanda, sistemas com IA absorvem volume, priorizam tickets e mantêm qualidade.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <p class="text-sm uppercase tracking-[0.2em] text-slate-400 mb-2">Decisão</p>
+            <h3 class="text-xl font-semibold text-white">Falta visibilidade e previsibilidade</h3>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Dashboards e modelos preditivos mostram gargalos e oportunidades antes de afetarem o negócio.</p>
+          </div>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <h3 class="text-lg font-semibold text-white">Sinais claros que pedem ação</h3>
+            <ul class="mt-3 space-y-3 text-slate-300 text-sm">
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>Clientes reclamam de demora, filas ou respostas inconsistentes.</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>Dados espalhados em e-mails e planilhas, sem rastreabilidade.</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>Seu time gasta tempo com tarefas repetitivas que poderiam ser automatizadas.</li>
+              <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-emerald-400"></span>Precisa lançar um novo produto/serviço rápido e com segurança.</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-brand-500/40 bg-gradient-to-r from-brand-600/10 to-indigo-600/10 p-6 shadow-card">
+            <h3 class="text-lg font-semibold text-white">Por que agora?</h3>
+            <p class="mt-2 text-slate-300 text-sm sm:text-base">Cada mês sem automação custa horas do seu time e oportunidades perdidas. IA e sistemas sob medida pagam-se rápido com redução de custo e aumento de receita.</p>
+            <div class="mt-4 flex flex-col sm:flex-row gap-3">
+              <a href="https://wa.me/5511990183194?text=Quero entender se já preciso de um sistema com IA." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-brand hover:brightness-110">Descobrir meu caso</a>
+              <a href="#contato" class="inline-flex items-center justify-center rounded-full border border-slate-800 bg-slate-900/70 px-5 py-3 text-sm font-semibold text-slate-100 shadow-card hover:border-brand-500 hover:text-brand-200">Falar com especialista</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="processo" class="relative py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center rounded-full bg-brand-600/20 px-4 py-1 text-sm font-semibold text-brand-200">Processo comprovado</span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Como tiramos suas ideias do papel</h2>
+          <p class="mt-3 text-lg text-slate-300">Consultoria próxima, squads ágeis e métricas claras em cada fase.</p>
+        </div>
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-card">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-200">Etapa 1</span>
+              <span class="h-8 w-8 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center font-semibold">01</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Diagnóstico</h3>
+            <p class="text-sm text-slate-400 mt-2">Mapeamos oportunidades e definimos casos de uso de IA alinhados às metas de negócio.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-card">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-200">Etapa 2</span>
+              <span class="h-8 w-8 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center font-semibold">02</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Protótipo rápido</h3>
+            <p class="text-sm text-slate-400 mt-2">Validamos hipóteses com um MVP funcional e mensuramos impacto inicial.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-card">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-200">Etapa 3</span>
+              <span class="h-8 w-8 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center font-semibold">03</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Entrega em produção</h3>
+            <p class="text-sm text-slate-400 mt-2">Pipeline CI/CD, monitoramento e segurança para escalar com estabilidade.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-5 shadow-card">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold text-brand-200">Etapa 4</span>
+              <span class="h-8 w-8 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center font-semibold">04</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold text-white">Evolução contínua</h3>
+            <p class="text-sm text-slate-400 mt-2">Squad dedicado para evoluir features, treinar modelos e otimizar jornadas.</p>
+          </div>
+        </div>
+        <div class="rounded-3xl border border-brand-500/40 bg-gradient-to-r from-brand-600/10 to-indigo-600/10 p-8 shadow-card">
+          <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div class="space-y-2">
+              <p class="text-sm uppercase tracking-[0.2em] text-slate-400">Compromisso com resultado</p>
+              <h3 class="text-2xl font-bold text-white">Mais velocidade, menos risco</h3>
+              <p class="text-slate-300">Começamos pequeno, entregamos valor rápido e escalamos com métricas de negócio. Você acompanha cada passo.</p>
+            </div>
+            <a href="https://wa.me/5511990183194?text=Vamos falar sobre meu projeto de IA e desenvolvimento." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-brand hover:brightness-110">
+              Montar meu plano com a Mattos Tech Solutions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center rounded-full bg-slate-800/80 px-4 py-1 text-sm font-semibold text-brand-200">Diferenciais</span>
+          <h2 class="mt-4 text-3xl sm:text-4xl font-bold text-white">Por que Mattos Tech Solutions</h2>
+          <p class="mt-3 text-lg text-slate-300">Equipe sênior, proximidade e foco no retorno do investimento.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m6-6H6" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Visão de produto</h3>
+            </div>
+            <p class="mt-3 text-slate-300 text-sm">Não só tecnologia: ajudamos a definir roadmap, KPIs e garantir aderência ao negócio.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-indigo-600/20 text-indigo-200 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 9.75h4.5v4.5h-4.5z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 4.5h15v15h-15z" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Squads próximos</h3>
+            </div>
+            <p class="mt-3 text-slate-300 text-sm">Atendimento híbrido na Zona Leste/SP e remoto para todo o Brasil, sempre com comunicação clara.</p>
+          </div>
+          <div class="rounded-2xl border border-slate-800 bg-slate-900/70 p-6 shadow-card">
+            <div class="flex items-center gap-3">
+              <div class="h-10 w-10 rounded-full bg-emerald-600/20 text-emerald-200 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white">Segurança e compliance</h3>
+            </div>
+            <p class="mt-3 text-slate-300 text-sm">Controles de acesso, versionamento, testes e observabilidade desde o primeiro sprint.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="relative py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="space-y-4">
+            <span class="inline-flex items-center rounded-full bg-brand-600/20 px-4 py-1 text-sm font-semibold text-brand-200">Contato</span>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">Pronto para conversar?</h2>
+            <p class="text-lg text-slate-300">Conte sua meta e voltamos com um diagnóstico gratuito e um plano claro de tecnologia e IA.</p>
+            <div class="space-y-3 text-slate-200">
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-brand-600/20 text-brand-200 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 5h18M8 5v14m8-14v14M5 21h14" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">Base em</p>
+                  <p class="font-semibold text-white">São Paulo - Tatuapé / Atuação nacional</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-emerald-600/20 text-emerald-200 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C10.539 20.193 5 14.993 5 10a7 7 0 1 1 14 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">Telefone/WhatsApp</p>
+                  <a href="https://wa.me/5511990183194?text=Olá! Gostaria de falar sobre um projeto de sistemas e IA." target="_blank" rel="noopener noreferrer" class="font-semibold text-white hover:text-brand-200">+55 11 99018-3194</a>
+                </div>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="h-10 w-10 rounded-full bg-indigo-600/20 text-indigo-200 flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6l8 6 8-6M4 18h16V6" />
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-sm text-slate-400">E-mail</p>
+                  <a href="mailto:mattostechsolutions@gmail.com" class="font-semibold text-white hover:text-brand-200">mattostechsolutions@gmail.com</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-6 bg-gradient-to-r from-brand-600/20 via-indigo-600/20 to-cyan-500/10 blur-3xl"></div>
+            <div class="relative rounded-3xl border border-slate-800 bg-slate-900/80 p-6 shadow-card">
+              <h3 class="text-xl font-semibold text-white mb-4">Conte sobre seu projeto</h3>
+              <form class="space-y-4">
+                <div>
+                  <label class="block text-sm text-slate-300 mb-1" for="nome">Nome</label>
+                  <input id="nome" name="nome" type="text" placeholder="Seu nome" class="w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-brand-500 focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-sm text-slate-300 mb-1" for="email">E-mail</label>
+                  <input id="email" name="email" type="email" placeholder="contato@empresa.com" class="w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-brand-500 focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-sm text-slate-300 mb-1" for="mensagem">O que você precisa?</label>
+                  <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex.: Assistente de IA para suporte, integração de sistemas, novo produto..." class="w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-slate-100 placeholder:text-slate-500 focus:border-brand-500 focus:outline-none"></textarea>
+                </div>
+                <button type="button" onclick="window.location.href='https://wa.me/5511990183194?text=Olá! Tenho um projeto e preenchi o formulário na landing page.';" class="w-full rounded-full bg-gradient-to-r from-brand-600 via-brand-500 to-indigo-600 px-6 py-3 text-base font-semibold text-white shadow-brand hover:brightness-110">Enviar e falar com especialista</button>
+                <p class="text-xs text-slate-500 text-center">Responderemos em até 1 dia útil.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-800 bg-slate-950 py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-sm text-slate-400">
+      <div>© 2024 Mattos Tech Solutions. Desenvolvimento de sistemas, IA e consultoria.</div>
+      <div class="flex flex-wrap gap-4">
+        <a href="#solucoes" class="hover:text-brand-300">Soluções</a>
+        <a href="#ia" class="hover:text-brand-300">IA na prática</a>
+        <a href="#processo" class="hover:text-brand-300">Processo</a>
+        <a href="#contato" class="hover:text-brand-300">Contato</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menuToggle');
+    const menu = document.getElementById('mobileMenu');
+    if (toggle && menu) {
+      toggle.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+      });
+    }
+  </script>
+</body>
+</html>
